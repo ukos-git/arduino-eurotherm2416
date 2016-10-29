@@ -19,6 +19,34 @@ Dependencies
 ============
 The program uses SofwareSerial which should be included in your Arduino IDE.
 
+simple example
+============
+Take a look at the example [app.ino](https://github.com/ukos-git/arduino-eurotherm2416/blob/master/app/app.ino) in the app folder of the project. It should be self-explanatory.
+
+A minimal example of setting once the temperature to 500°C and after that reading it and outputting it to the serial console is shown below. Start from here to build some more advanced features.
+
+```c
+#include <SoftwareSerial.h>
+#include <MKModbus.h>
+#include <MKTemperature.h>
+
+SoftwareSerial Eurotherm2416(9, 8);           // Init Eurotherm PID Controller on Ports rx,tx,convert the ttl by hardware
+MKModbus Modbus(Eurotherm2416);               // Init Modbus Protocol for Eurotherm PID Controller
+MKTemperature Temperature(Modbus);            // Init Oven with attached Eurotherm Controller
+
+void setup()
+{
+  Serial.begin(9600);
+  Eurotherm2416.begin(9600);
+  Temperature.set(500)
+}
+
+void loop()
+{
+  Serial.print(Temperature.getTemperature());
+}
+```
+
 Schematics
 ============
 schematic for the electronics setup is included in the ./fritzing directory:
