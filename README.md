@@ -10,12 +10,19 @@ Installation
 * Install the ./libraries in your [Arduino libraries folder](https://www.arduino.cc/en/Guide/Libraries).
 
 * open the Arduino application from the ./app directory with your arduino programming app and upload it.
-* schematic for the electronics setup is included in the ./fritzing directory.
-* basically a TTL to RS232 conversion is required as well as the appropriate adapter for the [Eurotherm 2416](http://www.eurotherm.com/products/temperature-controllers/single-loop/2400).
+* software serial is used in this example to don't interfere with the USB-Port-Communication on PIN 0 and 1.
+  * You can try to convert the TTL-Signal directly by Software to RS232 but be reminded, that pure RS232 is 12V while the arduino uses 5V for signal high values. There is a commented line in the example app.ino to do this by software.
+  * better way is a TTL to RS232 conversion with a MAX232 and some capacitors. See the schematics a view lines down.
+* required is also the appropriate RS232 output hardware module for the [Eurotherm 2416](http://www.eurotherm.com/products/temperature-controllers/single-loop/2400). You can stick it by first removing the Controller from the front.
 
 Dependencies
 ============
 The program uses SofwareSerial which should be included in your Arduino IDE.
+
+Schematics
+============
+schematic for the electronics setup is included in the ./fritzing directory:
+![breadboard](https://github.com/ukos-git/arduino-eurotherm2416/blob/master/fritzing/arduino-breadboard.png)
 
 License
 ============
