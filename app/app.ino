@@ -1,16 +1,14 @@
 #include <SoftwareSerial.h>
 #include <MKModbus.h>
 #include <MKTemperature.h>
+#include <MKUserInput.h>
+#include <MKMath.h>
 
 //SoftwareSerial Eurotherm2416(9, 8, true);   // Init Eurotherm PID Controller on Ports rx,tx,convert the ttl by software
 SoftwareSerial Eurotherm2416(9, 8);           // Init Eurotherm PID Controller on Ports rx,tx,convert the ttl by hardware
 MKModbus Modbus(Eurotherm2416);               // Init Modbus Protocol for Eurotherm PID Controller
 MKTemperature Temperature(Modbus);            // Init Oven with attached Eurotherm Controller
-
-#include <MKUserInput.h>
 MKUserInput Input;
-
-#include <MKMath.h>
 MKMath Math;
 
 void setup()
