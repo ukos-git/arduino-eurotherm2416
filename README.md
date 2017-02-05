@@ -5,6 +5,12 @@ The Project controls an [Eurotherm 2416](http://www.eurotherm.com/products/tempe
 The Output of the Arduino can be more easily read than the register based ModBus Output. 
 Modbus Protocol simplification is included in a separate libary that was also built from scratch.
 
+History
+============
+
+The Project was originally developed during a master thesis to be able to communicate digitally with an oven used vor SWNT synthesis. There were also some analog signals read out from different sensors etc. The code here is a standalone version for the PID controller of the oven that will probably be of more general use than the original program.
+The complete project from the thesis can also be acquired. Please send @ukos-git a message to optain the code.
+
 Installation
 ============
 * Install the ./libraries in your [Arduino libraries folder](https://www.arduino.cc/en/Guide/Libraries).
